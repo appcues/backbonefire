@@ -180,7 +180,9 @@
     }
 
     // set the id to the snapshot's key
-    model.id = Backbone.Firebase._getKey(snap);
+    if(model.id == null){
+      model.id = Backbone.Firebase._getKey(snap);
+    }
 
     return model;
   };
