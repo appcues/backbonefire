@@ -17,7 +17,7 @@
     "realtime"
   ],
   "main": [
-    "dist/backbonefire.js"
+    "src/backbonefire.js"
   ],
   "ignore": [
     "**/.*",
