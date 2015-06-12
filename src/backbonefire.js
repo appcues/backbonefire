@@ -858,6 +858,9 @@
 
       };
 
+      // Restore the previously deposed idAttribute to the model.
+      this.model.prototype.idAttribute = this.idAttribute;
+
     },
 
     comparator: function(model) {
