@@ -825,6 +825,9 @@
         throw new Error('url parameter required');
       }
 
+      // XXX before breaking model prototype: worked around this.model.prototype.idAttribute with this.idAttribute
+      this.idAttribute = this.idAttribute || BaseModel.prototype.idAttribute;
+
       // if we are not autoSyncing, the model needs
       // to be a non-autoSynced model
       if(!this.autoSync) {
@@ -834,9 +837,6 @@
         _.extend(this, SyncCollection.protoype);
         SyncCollection.apply(this, arguments);
       }
-
-      // XXX before breaking model prototype: worked around this.model.prototype.idAttribute with this.idAttribute
-      this.idAttribute = this.idAttribute || BaseModel.prototype.idAttribute;
 
       // XXX breaking the model prototype
       // Intercept the given model and give it a firebase ref.
