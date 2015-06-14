@@ -851,7 +851,9 @@
         newItem.sync = Backbone.Firebase.sync;
         newItem.on('change', function(model) {
           var updated = Backbone.Firebase.Model.prototype._updateModel(model);
-          model.set(updated, { silent: true });
+          if (updated) {
+            model.set(updated, {silent: true});
+          }
         });
 
         return newItem;
