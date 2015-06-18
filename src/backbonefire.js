@@ -379,14 +379,12 @@
      */
     _unsetAttributes: function(snap) {
       var newModel = Backbone.Firebase._checkId(snap, this.idAttribute);
+      var hasId = this.id !== null && !snap.hasChild(this.idAttribute);
 
       // If we only have a local ID, use that instead of overwriting it
       // with the snapshot key.
-      if (this.id !== null && !snap.hasChild(this.idAttribute)) {
+      if (hasId) {
         newModel[this.idAttribute] = this.id;
-      } else {
-        // Set the ID from the snapshot.
-        this._setId(snap);
       }
 
       if (typeof newModel === 'object' && newModel !== null) {
@@ -394,6 +392,11 @@
         _.each(diff, _.bind(function(key) {
           this.unset(key);
         }, this));
+      }
+
+      if (!hasId) {
+        // Set the ID from the snapshot.
+        this._setId(snap);
       }
 
       return newModel;
