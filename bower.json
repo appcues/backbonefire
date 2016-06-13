@@ -30,11 +30,6 @@
     "changelog.txt",
     "index.html"
   ],
-  "dependencies": {
-    "firebase": "2.3.x",
-    "backbone": "1.1.2",
-    "underscore": "~1.8.0"
-  },
   "devDependencies": {
     "mockfirebase": "~0.3.0"
   }
