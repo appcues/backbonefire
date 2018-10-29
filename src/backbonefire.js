@@ -23,7 +23,7 @@
   Backbone.Firebase._getKey = function(refOrSnapshot) {
     return typeof refOrSnapshot.key === "function"
       ? refOrSnapshot.key()
-      : refOrSnapshot.name();
+      : refOrSnapshot.key;
   };
 
   /**
@@ -574,7 +574,7 @@
           }
 
           // XXX model prototype broken: this.model.prototype.idAttribute worked around as this.idAttribute
-          var childRef = this.firebase.ref().child(model[this.idAttribute]);
+          var childRef = this.firebase.child(model[this.idAttribute]);
           childRef.set(model, _.bind(options.success, model));
         }
 
@@ -782,7 +782,7 @@
           localAttributes
         );
 
-        ref = this.firebase.ref().child(model.id);
+        ref = this.firebase.child(model.id);
 
         // if '.priority' is present setWithPriority
         // else do a regular update
@@ -889,7 +889,7 @@
       this.model = function(attrs, opts) {
         var newItem = new BaseModel(attrs, opts);
         newItem.autoSync = false;
-        newItem.firebase = self.firebase.ref().child(newItem.id);
+        newItem.firebase = self.firebase.child(newItem.id);
         newItem.sync = Backbone.Firebase.sync;
         newItem.on("change", function(model) {
           var updated = Backbone.Firebase.Model.prototype._updateModel(model);
