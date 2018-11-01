@@ -17,20 +17,11 @@
       "url": "http://firebase.mit-license.org/"
     }
   ],
-  "keywords": [
-    "backbone",
-    "firebase",
-    "realtime"
-  ],
+  "keywords": ["backbone", "firebase", "realtime"],
   "main": "dist/backbonefire.js",
-  "files": [
-    "dist/**",
-    "LICENSE",
-    "README.md",
-    "package.json"
-  ],
+  "files": ["dist/**", "LICENSE", "README.md", "package.json"],
   "dependencies": {
-    "firebase": "2.0.x"
+    "firebase": "5.5.x"
   },
   "devDependencies": {
     "chai-backbone": "~0.9.2",
