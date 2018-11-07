@@ -148,7 +148,7 @@
   Backbone.Firebase._determineRef = function(objOrString) {
     switch (typeof objOrString) {
       case "string":
-        return new Firebase(objOrString);
+        return new firebase.database().ref(objOrString);
       case "object":
         return objOrString;
       default:
